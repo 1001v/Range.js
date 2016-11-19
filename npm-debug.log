@@ -1,0 +1,117 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'publish' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/artem/Projects/Range',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/artem/.npm/Range.js/0.5.1/package.tgz not in flight; packing
+9 verbose correctMkdir /home/artem/.npm correctMkdir not in flight; initializing
+10 info lifecycle Range.js@0.5.1~prepublish: Range.js@0.5.1
+11 silly lifecycle Range.js@0.5.1~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/home/artem/.npm/Range.js/0.5.1/package.tgz',
+12 verbose tar pack   '/home/artem/Projects/Range' ]
+13 verbose tarball /home/artem/.npm/Range.js/0.5.1/package.tgz
+14 verbose folder /home/artem/Projects/Range
+15 verbose addLocalTarball adding from inside cache /home/artem/.npm/Range.js/0.5.1/package.tgz
+16 verbose correctMkdir /home/artem/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd Range.js@0.5.1
+18 verbose afterAdd /home/artem/.npm/Range.js/0.5.1/package/package.json not in flight; writing
+19 verbose correctMkdir /home/artem/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /home/artem/.npm/Range.js/0.5.1/package/package.json written
+21 silly publish { name: 'Range.js',
+21 silly publish   version: '0.5.1',
+21 silly publish   description: 'Ruby-like range class in javascript',
+21 silly publish   main: 'dist/range.es6.js',
+21 silly publish   directories: { test: 'test' },
+21 silly publish   scripts: { test: 'mocha' },
+21 silly publish   author: { name: '1001v' },
+21 silly publish   license: 'MIT',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+https://github.com/1001v/Range.js.git' },
+21 silly publish   devDependencies:
+21 silly publish    { 'babel-preset-es2015': '^6.18.0',
+21 silly publish      del: '^2.2.2',
+21 silly publish      gulp: 'github:gulpjs/gulp#4.0',
+21 silly publish      'gulp-babel': '^6.1.2',
+21 silly publish      'gulp-mocha': '^3.0.1',
+21 silly publish      'gulp-rename': '^1.2.2',
+21 silly publish      'gulp-sourcemaps': '^2.2.0',
+21 silly publish      'gulp-uglify': '^2.0.0',
+21 silly publish      mocha: '^3.1.2' },
+21 silly publish   readme: '# Range.js\n\nRange.js is an attempt to add ruby-like range class to javascript. Library is written using ES6 (ecmascript 2015), but \ncompiled (using babel) to ES5 version is provided as well.\n\n## Installing\n\n### Install using npm:\n\n```\nnpm i --save Range.js\n```\n\n### Or clone this repository:\n\n```\ngit clone https://github.com/1001v/Range.js.git ./Range.js\n```\n\n## Adding to project\n\nYou can add Range.js to your node.js project, HTML-code or RequireJS\n\n### NodeJS\n\nRequire Range.js ES6:\n```\n\nconst Range = require(\'Range.js\');\n```\n\nRequire Range.js ES5:\n```\n\nconst Range = require(\'Range.js/dist/range.es5.js\');\n```\n\nMake Range class global:\n```\n\nglobal.Range = Range;\n```\n\n### Browser\n\nAdd script tag to your HTML:\n```\n<script src=\'Range.js/dist/range.es5.js\'></script> \n```\n\n## Basic usage\n\nCreate your range like this:\n```\nlet min = 0;\nlet max = 10;\nlet range = new Range(min, max);\n```\n\nMax value must be greater or equal to min value, otherwise an error would be thrown. Min and max values must be the same type\n(string or number). You can create a range of any unicode symbols, for example:\n\n```\nlet range = new Range(\'a\', \'z\');\n```\n\nThe only condition is that charcode is rising from min to max. Note that Range.js doesn\'t store all range values, so feel free to create \npretty big ranges.\n\n\n## Full methods list\n\n###isEqual(other)\nCheck if this range object is equal to other range object:\n```\nnew Range(1, 5).isEqual(new Range(1, 5)) // true\nnew Range(1, 5).isEqual(new Range(\'a\', \'z\')) // false\n```\n\n###includes(value)\nCheck if range includes a value:\n```\nnew Range(1, 10).includes(5) // true\nnew Range(\'A\', \'Z\').includes(100) // false\n```\n\n###toString()\nGet string from range:\n```\n\nnew Range(0, 10).toString() // \'[0..10]\'\n```\n\n###toArray()\nGet array of all values, included by range (this one is useful when you want an alphabet array):\n```\nnew Range(5, 10).toArray() // [5, 6, 7, 8, 9, 10]\nnew Range(\'a\', \'f\').toArray() // [\'a\', \'b\', \'c\', \'d\', \'e\', \'f\']\n```\n\n###forEach(callback)\nIterate your range like array (no array allocs):\n```\nlet range = new Range(5, 10).forEach((value, index, range) => {\n    // value contains each value from range\n    // index contains value index like in array\n    // range contains this range\n})\n// Note that forEach method returns the range it was called for, unlike Array.prototype.forEach does in vanilla js\nrange.toString() // \'[5..10]\'\n```\n\n###size()\nGet range size:\n```\nnew Range(0, 10).size() // 11\n```\n\n###getClass()\nGet class name:\n```\nnew Range(0, 10).getClass() // \'Range\'\n```\n\n## Testing and building\nGulpfile for building and tests for Mocha are provided in this repository.\n### Follow this steps to prepare development environment\n\nClone (or fork and clone optionally) this repository:\n```\ngit clone https://github.com/1001v/Range.js.git ./Range.js\n```\nInstall development dependencies:\n```\ncd Range.js && npm install\n```\n\n### Run tests\n```\nnpm test\n```\n\n### Build\nUnfortunately, there\'s no option to uglify ES6 version now due to 3rd party reasons.\n```\ngulp build:all\n```\n\nYou can check gulpfile for specific build tasks. \n\n## License\n\nThis project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'de83d0cd82e936e283069ea868a468153f4f0d9b',
+21 silly publish   bugs: { url: 'https://github.com/1001v/Range.js/issues' },
+21 silly publish   homepage: 'https://github.com/1001v/Range.js#readme',
+21 silly publish   _id: 'Range.js@0.5.1',
+21 silly publish   _shasum: 'cf8dc38feb1b787be5f7db7a5467520be68a20d0',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name Range.js
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'Range.js',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'Range.js',
+26 silly mapToRegistry   name: 'Range.js',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/Range.js
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /home/artem/.npm/Range.js/0.5.1/package.tgz
+30 verbose request uri https://registry.npmjs.org/Range.js
+31 verbose request sending authorization for write operation
+32 info attempt registry request try #1 at 17:27:04
+33 verbose request using bearer token for auth
+34 verbose request id 487a3d889dbadf35
+35 http request PUT https://registry.npmjs.org/Range.js
+36 http 403 https://registry.npmjs.org/Range.js
+37 verbose headers { 'content-type': 'application/json',
+37 verbose headers   'cache-control': 'max-age=300',
+37 verbose headers   'content-length': '95',
+37 verbose headers   'accept-ranges': 'bytes',
+37 verbose headers   date: 'Sat, 19 Nov 2016 14:27:06 GMT',
+37 verbose headers   via: '1.1 varnish',
+37 verbose headers   connection: 'keep-alive',
+37 verbose headers   'x-served-by': 'cache-fra1241-FRA',
+37 verbose headers   'x-cache': 'MISS',
+37 verbose headers   'x-cache-hits': '0',
+37 verbose headers   'x-timer': 'S1479565625.178252,VS0,VE875',
+37 verbose headers   vary: 'Accept-Encoding' }
+38 verbose request invalidating /home/artem/.npm/registry.npmjs.org/Range.js on PUT
+39 error publish Failed PUT 403
+40 verbose stack Error: "You cannot publish over the previously published version 0.5.1." : Range.js
+40 verbose stack     at makeError (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+40 verbose stack     at CachingRegistryClient.<anonymous> (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+40 verbose stack     at Request._callback (/usr/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+40 verbose stack     at Request.self.callback (/usr/lib/node_modules/npm/node_modules/request/request.js:187:22)
+40 verbose stack     at emitTwo (events.js:106:13)
+40 verbose stack     at Request.emit (events.js:191:7)
+40 verbose stack     at Request.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:1048:10)
+40 verbose stack     at emitOne (events.js:96:13)
+40 verbose stack     at Request.emit (events.js:188:7)
+40 verbose stack     at IncomingMessage.<anonymous> (/usr/lib/node_modules/npm/node_modules/request/request.js:969:12)
+41 verbose statusCode 403
+42 verbose pkgid Range.js
+43 verbose cwd /home/artem/Projects/Range
+44 error Linux 4.4.28-2-MANJARO
+45 error argv "/usr/bin/node" "/usr/bin/npm" "publish"
+46 error node v6.9.1
+47 error npm  v3.10.9
+48 error code E403
+49 error "You cannot publish over the previously published version 0.5.1." : Range.js
+50 error If you need help, you may report this error at:
+50 error     <https://github.com/npm/npm/issues>
+51 verbose exit [ 1, true ]
