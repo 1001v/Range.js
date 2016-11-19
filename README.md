@@ -122,6 +122,31 @@ Get class name:
 new Range(0, 10).getClass() // 'Range'
 ```
 
+## Testing and building
+Gulpfile for building and tests for Mocha are provided in this repository.
+### Follow this steps to prepare development environment:
+
+Clone (or fork and clone optionally) this repository:
+```
+git clone https://github.com/1001v/Range.js.git ./Range.js
+```
+Install development dependencies:
+```
+cd Range.js && npm install
+```
+
+Run tests:
+```
+npm test
+```
+
+Build:
+```
+gulp build:all
+```
+
+You can check gulpfile for specific build tasks. 
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
