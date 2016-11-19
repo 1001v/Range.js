@@ -58,7 +58,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 });
             }
 
-            // равен ли другому диапазону
+            // check if this range equal to other range
 
         }, {
             key: 'isEqual',
@@ -66,7 +66,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 return this.min === other.min && this.max === other.max;
             }
 
-            // включает ли в себя значение
+            // check if range includes a value
 
         }, {
             key: 'includes',
@@ -80,7 +80,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 });
             }
 
-            // сделать строку из диапазона
+            // make string
 
         }, {
             key: 'toString',
@@ -88,7 +88,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 return '[' + this.min + '..' + this.max + ']';
             }
 
-            // сделать массив из диапазона
+            // make array from range
 
         }, {
             key: 'toArray',
@@ -99,7 +99,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }return array;
             }
 
-            // итерировать диапазон
+            // iterate range like array
 
         }, {
             key: 'forEach',
@@ -109,7 +109,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 }return this;
             }
 
-            // размер диапазона
+            // range size
 
         }, {
             key: 'size',

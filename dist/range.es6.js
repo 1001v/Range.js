@@ -42,22 +42,22 @@
             return this._switch(value, v => String.fromCharCode(v.charCodeAt(0) + 1), v => v + 1);
         }
 
-        // равен ли другому диапазону
+        // check if this range equal to other range
         isEqual(other) {
             return this.min === other.min && this.max === other.max;
         }
 
-        // включает ли в себя значение
+        // check if range includes a value
         includes(value) {
             return this._switch(value, v => v.charCodeAt(0) >= this.min.charCodeAt(0) && v.charCodeAt(0) <= this.max.charCodeAt(0), v => v >= this.min && v <= this.max);
         }
 
-        // сделать строку из диапазона
+        // make string
         toString() {
             return `[${this.min}..${this.max}]`;
         }
 
-        // сделать массив из диапазона
+        // make array from range
         toArray() {
             let array = []
             for (let tmp = this.min; tmp <= this.max; tmp = this._next(tmp))
@@ -65,14 +65,14 @@
             return array;
         }
 
-        // итерировать диапазон
+        // iterate range like array
         forEach(callback) {
             for (let tmp = this.min, index = 0; tmp <= this.max; tmp = this._next(tmp), index++)
                 callback(tmp, index, this);
             return this;
         }
 
-        // размер диапазона
+        // range size
         size() {
             return this._switch(this.min, () => this.max.charCodeAt(0) - this.min.charCodeAt(0) + 1, () => this.max - this.min + 1);
         }
