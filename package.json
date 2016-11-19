@@ -1,6 +1,6 @@
 {
     "name": "Range.js",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "description": "Ruby-like range class in javascript",
     "main": "dist/range.es6.js",
     "directories": {
