@@ -35,15 +35,15 @@ Require Range.js ES5:
 const Range = require('Range.js/dist/range.es5.js');
 ```
 
-Make Range class global
+Make Range class global:
 ```
 
 global.Range = Range;
 ```
 
-### Browser:
+### Browser
 
-Add script tag to your HTML
+Add script tag to your HTML:
 ```
 <script src='Range.js/dist/range.es5.js'></script> 
 ```
@@ -135,12 +135,13 @@ Install development dependencies:
 cd Range.js && npm install
 ```
 
-### Run tests:
+### Run tests
 ```
 npm test
 ```
 
-### Build:
+### Build
+Unfortunately, there's option to uglify ES6 version now due to 3rd party reasons.
 ```
 gulp build:all
 ```
