@@ -141,7 +141,7 @@ npm test
 ```
 
 ### Build
-Unfortunately, there's option to uglify ES6 version now due to 3rd party reasons.
+Unfortunately, there's no option to uglify ES6 version now due to 3rd party reasons.
 ```
 gulp build:all
 ```
