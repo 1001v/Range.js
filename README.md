@@ -5,15 +5,13 @@ compiled (using babel) to ES5 version is provided as well.
 
 ## Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-###Install using npm:
+### Install using npm:
 
 ```
 npm i --save Range.js
 ```
 
-###Or clone this repository:
+### Or clone this repository:
 
 ```
 git clone https://github.com/1001v/Range.js.git ./Range.js
@@ -23,7 +21,7 @@ git clone https://github.com/1001v/Range.js.git ./Range.js
 
 You can add Range.js to your node.js project, HTML-code or RequireJS
 
-###NodeJS:
+### NodeJS:
 
 Require Range.js ES6
 ```
@@ -43,14 +41,14 @@ Make Range class global
 global.Range = Range;
 ```
 
-###Browser:
+### Browser:
 
 Add script tag to your HTML
 ```
-<script src='dist/range.es5.js'></script> 
+<script src='Range.js/dist/range.es5.js'></script> 
 ```
 
-##Basic usage
+## Basic usage
 
 Create your range like this:
 ```
@@ -66,7 +64,63 @@ Max value must be greater or equal to min value, otherwise an error would be thr
 let range = new Range('a', 'z');
 ```
 
-The only condition is that charcode is rising from min to max.
+The only condition is that charcode is rising from min to max. Note that Range.js doesn't store all range values, so feel free to create 
+pretty big ranges.
+
+
+## Full methods list
+
+###isEqual(other)
+Check if this range object is equal to other range object:
+```
+new Range(1, 5).isEqual(new Range(1, 5)) // true
+new Range(1, 5).isEqual(new Range('a', 'z')) // false
+```
+
+###includes(value)
+Check if range includes a value:
+```
+new Range(1, 10).includes(5) // true
+new Range('A', 'Z').includes(100) // false
+```
+
+###toString()
+Get string from range:
+```
+
+new Range(0, 10).toString() // '[0..10]'
+```
+
+###toArray()
+Get array of all values, included by range:
+```
+new Range(5, 10).toArray() // [5, 6, 7, 8, 9, 10]
+new Range('a', 'f').toArray() // ['a', 'b', 'c', 'd', 'e', 'f']
+```
+
+###forEach(callback)
+Iterate your range like array (no array allocs):
+```
+let range = new Range(5, 10).forEach((value, index, range) {
+    // value contains each value from range
+    // index contains value index like in array
+    // range contains this range
+})
+// Note that forEach method returns the range it was called for, unlike Array.prototype.forEach does in vanilla js
+range.toString() // '[5..10]'
+```
+
+###size()
+Get range size:
+```
+new Range(0, 10).size() // 11
+```
+
+###getClass()
+Get class name:
+```
+new Range(0, 10).getClass() // 'Range'
+```
 
 ## License
 
