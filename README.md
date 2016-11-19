@@ -1,7 +1,15 @@
 # Range.js
 
 Range.js is an attempt to add ruby-like range class to javascript. Library is written using ES6 (ecmascript 2015), but 
-compiled (using babel) to ES5 version is provided as well.
+compiled (using babel) ES5 version is provided as well.
+
+## Features
+
+* Ruby-like full-featured range class (check methods list)
+* Chars and numbers are supported
+* Node, requirejs and browsers are supported
+* ES6 and ES5 version for older browsers (like Internet Explorer 10-11)
+* Easy to fork: gulpfile and tests are provided
 
 ## Installing
 
