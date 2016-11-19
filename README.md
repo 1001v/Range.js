@@ -92,7 +92,7 @@ new Range(0, 10).toString() // '[0..10]'
 ```
 
 ###toArray()
-Get array of all values, included by range:
+Get array of all values, included by range (this one is useful when you want an alphabet array):
 ```
 new Range(5, 10).toArray() // [5, 6, 7, 8, 9, 10]
 new Range('a', 'f').toArray() // ['a', 'b', 'c', 'd', 'e', 'f']
@@ -101,7 +101,7 @@ new Range('a', 'f').toArray() // ['a', 'b', 'c', 'd', 'e', 'f']
 ###forEach(callback)
 Iterate your range like array (no array allocs):
 ```
-let range = new Range(5, 10).forEach((value, index, range) {
+let range = new Range(5, 10).forEach((value, index, range) => {
     // value contains each value from range
     // index contains value index like in array
     // range contains this range
