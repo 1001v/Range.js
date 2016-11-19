@@ -21,15 +21,15 @@ git clone https://github.com/1001v/Range.js.git ./Range.js
 
 You can add Range.js to your node.js project, HTML-code or RequireJS
 
-### NodeJS:
+### NodeJS
 
-Require Range.js ES6
+Require Range.js ES6:
 ```
 
 const Range = require('Range.js');
 ```
 
-Require Range.js ES5
+Require Range.js ES5:
 ```
 
 const Range = require('Range.js/dist/range.es5.js');
@@ -124,7 +124,7 @@ new Range(0, 10).getClass() // 'Range'
 
 ## Testing and building
 Gulpfile for building and tests for Mocha are provided in this repository.
-### Follow this steps to prepare development environment:
+### Follow this steps to prepare development environment
 
 Clone (or fork and clone optionally) this repository:
 ```
@@ -135,12 +135,12 @@ Install development dependencies:
 cd Range.js && npm install
 ```
 
-Run tests:
+### Run tests:
 ```
 npm test
 ```
 
-Build:
+### Build:
 ```
 gulp build:all
 ```
