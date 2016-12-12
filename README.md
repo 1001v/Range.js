@@ -85,6 +85,23 @@ new Range(1, 5).isEqual(new Range(1, 5)) // true
 new Range(1, 5).isEqual(new Range('a', 'z')) // false
 ```
 
+###get(index)
+Get a value from range by index like from array:
+```
+new Range(-10, 5).get(0) // -10
+new Range('a', 'z').get(25) // 'z'
+new Range(0, 1).get(-1) // undefined
+```
+
+###getRandom()
+Get random value from range:
+```
+new Range(-10, 10).getRandom() // -4
+new Range(1, 10).getRandom() // 5
+new Range('a', 'z').getRandom() // 'f'
+new Range('C', 'G').getRandom() // 'E'
+```
+
 ###includes(value)
 Check if range includes a value:
 ```

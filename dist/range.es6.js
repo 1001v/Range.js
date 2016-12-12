@@ -42,6 +42,17 @@
             return this._switch(value, v => String.fromCharCode(v.charCodeAt(0) + 1), v => v + 1);
         }
 
+        // get value from range by index like from array
+        get(index) {
+            return index < 0 || index >= this.size() ? undefined : this._switch(this.min, () => String.fromCharCode(this.min.charCodeAt(0) + index), () => this.min + index);
+        }
+
+        // get random value from range
+
+        getRandom() {
+            return this.get(Math.floor(Math.random() * (this.size() - 1)));
+        }
+
         // check if this range equal to other range
         isEqual(other) {
             return this.min === other.min && this.max === other.max;

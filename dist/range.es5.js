@@ -58,6 +58,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 });
             }
 
+            // get value from range by index like from array
+
+        }, {
+            key: 'get',
+            value: function get(index) {
+                var _this = this;
+
+                return index < 0 || index >= this.size() ? undefined : this._switch(this.min, function () {
+                    return String.fromCharCode(_this.min.charCodeAt(0) + index);
+                }, function () {
+                    return _this.min + index;
+                });
+            }
+
+            // get random value from range
+
+        }, {
+            key: 'getRandom',
+            value: function getRandom() {
+                return this.get(Math.floor(Math.random() * (this.size() - 1)));
+            }
+
             // check if this range equal to other range
 
         }, {
@@ -71,12 +93,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: 'includes',
             value: function includes(value) {
-                var _this = this;
+                var _this2 = this;
 
                 return this._switch(value, function (v) {
-                    return v.charCodeAt(0) >= _this.min.charCodeAt(0) && v.charCodeAt(0) <= _this.max.charCodeAt(0);
+                    return v.charCodeAt(0) >= _this2.min.charCodeAt(0) && v.charCodeAt(0) <= _this2.max.charCodeAt(0);
                 }, function (v) {
-                    return v >= _this.min && v <= _this.max;
+                    return v >= _this2.min && v <= _this2.max;
                 });
             }
 
@@ -114,12 +136,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }, {
             key: 'size',
             value: function size() {
-                var _this2 = this;
+                var _this3 = this;
 
                 return this._switch(this.min, function () {
-                    return _this2.max.charCodeAt(0) - _this2.min.charCodeAt(0) + 1;
+                    return _this3.max.charCodeAt(0) - _this3.min.charCodeAt(0) + 1;
                 }, function () {
-                    return _this2.max - _this2.min + 1;
+                    return _this3.max - _this3.min + 1;
                 });
             }
         }, {

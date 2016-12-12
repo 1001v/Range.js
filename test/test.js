@@ -65,6 +65,35 @@ describe('Range', () => {
         });
     });
 
+    describe('#get(index)', () => {
+        it('should return value', () => {
+            let range1 = new Range(-10, 10);
+            let range2 = new Range('a', 'z');
+            assert.ok(range1.get(0) === -10);
+            assert.ok(range1.get(20) === 10);
+            assert.ok(range1.get(10) === 0);
+            assert.ok(range2.get(0) === 'a');
+            assert.ok(range2.get(25) === 'z');
+            assert.ok(range2.get(10) === 'k');
+        })
+        it('should return undefined', () => {
+            let range1 = new Range(-10, 10);
+            let range2 = new Range('a', 'z');
+            assert.ok(range1.get(-1) === undefined);
+            assert.ok(range1.get(26) === undefined);
+            assert.ok(range2.get(26) === undefined);
+            assert.ok(range2.get(-1) === undefined);
+        })
+    });
+
+    describe('#get(index)', () => {
+        it('should not return undefined', () => {
+            let range1 = new Range(-100, 100);
+            for (let i = 0; i < 1000; i++)
+                assert.ok(range1.getRandom() !== undefined);
+        })
+    });
+
     describe('#isEqual(other)', () => {
         it('should be equal', () => {
             let range1 = new Range(-10, 10);

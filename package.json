@@ -6,6 +6,13 @@
     "directories": {
         "test": "test"
     },
+    "keywords": [
+        "Ruby",
+        "Range",
+        "JavaScript",
+        "ecmascript",
+        "class"
+    ],
     "scripts": {
         "test": "mocha"
     },
