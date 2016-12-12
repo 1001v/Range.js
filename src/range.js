@@ -5,7 +5,7 @@
         module.exports = definition();
     } else { // Browser
         var theModule = definition(),
-            global = this,
+            global = this || window,
             old = global[name];
         theModule.noConflict = function() {
             global[name] = old;
